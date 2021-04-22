@@ -1,3 +1,4 @@
+const array = require("./src/array");
 const boolean = require("./src/boolean");
 const nil = require("./src/nil");
 const number = require("./src/number");
