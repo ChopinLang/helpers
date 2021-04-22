@@ -19,15 +19,21 @@ const { isArray, isNumber, handleNegativeIndex } = require("helpers");
 
 ### The functions
 
+#### arrayFrom
+
+`(object: any, [mapFn: (item: any, index: number, array: any[]) -> void, thisArg: any]) -> any[]`
+
+Returns an array from any object that can be converted to an array (e.g. an array-like object). Optional `mapFn` transforms every element of the array, and optional `thisArg` sets the context for `mapFn`.
+
 #### isArray
 
-`(obj: any) -> boolean`
+`(object: any) -> boolean`
 
 Determine if an object is an array.
 
 #### isArrayLike
 
-`(obj: any) -> boolean`
+`(object: any) -> boolean`
 
 Determine if an object is array-like, e.g. has a length property and items stored in numeric indexes.
 
@@ -95,17 +101,35 @@ CAUTION: will return `NaN` if the value has no direct numeric equivalent. Will r
 
 Calls `Object.prototype.toString` with `object` as the context.
 
+#### classToString
+
+`(object: any) -> string`
+
+Gets the class or constructor name. Works with anonymous function expressions bound to variables, but the following return an empty string:
+
+```js
+let o = new function() {};
+```
+
+... so probably DON'T DO THAT.
+
 #### forAllProperties
 
-`(object: any, fn: (property: any, key: string, object: any) -> void|boolean) -> void`
+`(object: any, fn: (property: any[, key: string, object: any]) -> void|boolean) -> void`
 
 Run `fn` callback on all own properties of any object. Breaks out of the loop if the callback returns false.
 
 #### forEachProperty
 
-`(object: any, fn: (property: any, key: string, object: any) -> void|boolean) -> void`
+`(object: any, fn: (property: any[, key: string, object: any]) -> void|boolean) -> void`
 
 Run `fn` callback on the enumerable own properties of any object. Breaks out of the loop if the callback returns false.
+
+#### getClass
+
+`(object: any) -> function`
+
+Get the constructor function or class used to create an object.
 
 #### getOwn
 
@@ -127,7 +151,7 @@ Return an array of all an object's own string property names.
 
 #### setProperty
 
-`(target: object, name: string, value: any, enumerable: boolean|undefined, writable: boolean|undefined) -> void`
+`(target: object, name: string, value: any[, enumerable: boolean|undefined, writable: boolean|undefined]) -> void`
 
 Sets a property and its attributes on a target object.
 

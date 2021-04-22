@@ -1,16 +1,20 @@
-function isArray(obj) {
-  return Array.isArray(obj);
+function arrayFrom(object, mapFn) {
+  return Array.from(object, mapFn);
 }
 
-function isArrayLike(obj) {
+function isArray(object) {
+  return Array.isArray(object);
+}
+
+function isArrayLike(object) {
   return (
-    isArray(obj) ||
-    (!!obj &&
-      typeof obj == "object" &&
-      typeof obj.length == "number" &&
-      obj.length === 0) ||
-    (obj.length > 0 && obj.length - 1 in obj)
+    isArray(object) ||
+    (!!object &&
+      typeof object == "object" &&
+      typeof object.length == "number" &&
+      object.length === 0) ||
+    (object.length > 0 && object.length - 1 in object)
   );
 }
 
-module.exports = { isArray, isArrayLike };
+module.exports = { arrayFrom, isArray, isArrayLike };

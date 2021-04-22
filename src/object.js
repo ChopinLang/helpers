@@ -2,6 +2,12 @@ function callInternalToString(object) {
   return Object.prototype.toString.call(object);
 }
 
+// Will work with an anonymous function expression bound to a variable
+// Will NOT work with, e.g. let o = new function() {}; - so DON'T DO THAT
+function classToString(object) {
+  return object.constructor.name;
+}
+
 function forAllProperties(object, fn) {
   for (let key of Object.getOwnPropertyNames(object)) {
     if (fn.call(object, obj[key], key, object) === false) {
@@ -19,6 +25,10 @@ function forEachProperty(object, fn) {
       break;
     }
   }
+}
+
+function getClass(object) {
+  return object.constructor;
 }
 
 function getOwn(object, property) {
@@ -44,8 +54,10 @@ function setProperty(target, name, value, enumerable, writable) {
 
 module.exports = {
   callInternalToString,
+  classToString,
   forAllProperties,
   forEachProperty,
+  getClass,
   getOwn,
   hasOwn,
   ownPropertyNames,
