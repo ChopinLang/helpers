@@ -1,4 +1,4 @@
-const isNil = require("./null");
+const isNil = require("./nil");
 
 /**
  * Coerce a value to its string representation. From {@link https://github.com/panzerdp/voca/blob/master/src/helper/string/coerce_to_string.js}
