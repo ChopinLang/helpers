@@ -8,6 +8,7 @@ const symbol = require("./src/symbol");
 const value = require("./src/value");
 
 module.exports = {
+  ...array,
   ...boolean,
   ...nil,
   ...number,
