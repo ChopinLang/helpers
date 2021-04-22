@@ -1,0 +1,31 @@
+{
+  "name": "helpers",
+  "version": "0.0.1",
+  "description": "A collection of useful helper functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NyxLang/helpers.git"
+  },
+  "keywords": [
+    "helpers",
+    "string",
+    "object",
+    "symbol",
+    "boolean",
+    "null",
+    "undefined",
+    "array",
+    "object",
+    "regexp"
+  ],
+  "author": "Jason Barr <jason@jasonsbarr.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NyxLang/helpers/issues"
+  },
+  "homepage": "https://github.com/NyxLang/helpers#readme"
+}
