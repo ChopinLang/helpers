@@ -43,7 +43,12 @@ function ownPropertyNames(object) {
   return Object.getOwnPropertyNames(object);
 }
 
-function setProperty(target, name, value, enumerable, writable) {
+function setProperty(
+  target,
+  name,
+  value,
+  { enumerable = true, writable = true } = {}
+) {
   Object.defineProperty(target, name, {
     value,
     enumerable: !!enumerable,
