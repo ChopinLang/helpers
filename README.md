@@ -21,49 +21,49 @@ const { isArray, isNumber, handleNegativeIndex } = require("helpers");
 
 #### isArray
 
-`(any) -> boolean`
+`(obj: any) -> boolean`
 
 Determine if an object is an array.
 
 #### isArrayLike
 
-`(any) -> boolean`
+`(obj: any) -> boolean`
 
 Determine if an object is array-like, e.g. has a length property and items stored in numeric indexes.
 
 #### isBoolean
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
-Determine if an object is a boolean value.
+Determine if a value is a boolean value.
 
 #### isNil
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
 Determine if a value is `null` or `undefined`.
 
 #### isNull
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
 Determine if a value is specifically null.
 
 #### isUndefined
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
 Determine if a value is specifically undefined.
 
 #### nilDefault
 
-`(any) -> any`
+`(value: any, default: any) -> any`
 
 If a value is null or undefined, specify a default value to return. Otherwise, return the value itself.
 
 #### handleNegativeIndex
 
-`(number, string|array|object) -> number`
+`(index: number, seq: string|array|object) -> number`
 
 If second parameter is object, must be an array-like object or other iterable with numeric indexes.
 
@@ -71,50 +71,92 @@ Converts a negative index into its corresponding positive index relative to a se
 
 #### isBigInt
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
 Determine if a value is a BigInteger.
 
 #### isNumber
 
-`(any) -> number`
+`(value: any) -> number`
 
 Determine if a value is a number.
 
 #### valueOf
 
-`(any) -> number`
+`(value: any) -> number`
 
 Convert a value into its numeric equivalent.
 
 CAUTION: will return `NaN` if the value has no direct numeric equivalent. Will return `Infinity` or `-Infinity` if the value is too large or small to be represented by a JavaScript number.
 
+#### callInternalToString
+
+`(object: any) -> string
+
+Calls `Object.prototype.toString` with `object` as the context.
+
+#### forAllProperties
+
+`(object: any, fn: (property: any, key: string, object: any) -> void|boolean) -> void`
+
+Run `fn` callback on all own properties of any object. Breaks out of the loop if the callback returns false.
+
+#### forEachProperty
+
+`(object: any, fn: (property: any, key: string, object: any) -> void|boolean) -> void`
+
+Run `fn` callback on the enumerable own properties of any object. Breaks out of the loop if the callback returns false.
+
+#### getOwn
+
+`(object: any, property: string) -> any`
+
+If an object has an own property, retrieve it. Otherwise returns `false`.
+
+#### hasOwn
+
+`(object: any, property: string) -> boolean`
+
+Determine if an object has an own property.
+
+#### ownPropertyNames
+
+`(object: any) -> string[]`
+
+Return an array of all an object's own string property names.
+
+#### setProperty
+
+`(target: object, name: string, value: any, enumerable: boolean|undefined, writable: boolean|undefined) -> void`
+
+Sets a property and its attributes on a target object.
+
 #### isRegExp
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
-Determine if an object is a RegExp.
+Determine if a value is a RegExp.
 
 #### coerceToString
 
-`(any) -> string`
+`(value: any) -> string`
 
 If a value is not a string, coerce it to its string representation.
 
 #### isString
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
 Determine if a value is a string.
 
 #### isSymbol
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
 Determine if a value is a Symbol.
 
 #### isDefined
 
-`(any) -> boolean`
+`(value: any) -> boolean`
 
-Determine if a value is defined or undefined.
+Determine if a value is defined.
