@@ -1,5 +1,5 @@
-function isDefined(value) {
-  return value !== undefined;
+function isDefined(parameter) {
+  return parameter !== undefined;
 }
 
 module.exports = { isDefined };

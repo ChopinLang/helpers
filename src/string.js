@@ -24,3 +24,5 @@ function isString(value) {
     (typeof value == "object" && value instanceof String)
   );
 }
+
+module.exports = { coerceToString, isString };

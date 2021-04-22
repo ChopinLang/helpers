@@ -16,7 +16,8 @@ function handleNegativeIndex(index, seq) {
 }
 
 function valueOf(number) {
-  return number.valueOf();
+  // cast to number to handle BigInts
+  return Number(number.valueOf());
 }
 
-module.exports = { isNumber, isBigInt, handleNegativeIndex, valueOf };
+module.exports = { handleNegativeIndex, isBigInt, isNumber, valueOf };
