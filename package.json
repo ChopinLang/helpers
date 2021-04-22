@@ -1,5 +1,5 @@
 {
-  "name": "helpers",
+  "name": "@nyxlang/helpers",
   "version": "0.0.1",
   "description": "A collection of useful helper functions",
   "main": "index.js",
