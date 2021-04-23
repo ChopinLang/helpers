@@ -17,13 +17,21 @@ const helpers = require("helpers");
 const { isArray, isNumber, handleNegativeIndex } = require("helpers");
 ```
 
-### The functions
+## Functions
+
+### Array
 
 #### arrayFrom
 
 `(object: any, [mapFn: (item: any, index: number, array: any[]) -> void, thisArg: any]) -> any[]`
 
 Returns an array from any object that can be converted to an array (e.g. an array-like object). Optional `mapFn` transforms every element of the array, and optional `thisArg` sets the context for `mapFn`.
+
+#### first
+
+`(array: any[]) -> any`
+
+Returns the first item of an array.
 
 #### isArray
 
@@ -37,11 +45,27 @@ Determine if an object is an array.
 
 Determine if an object is array-like, e.g. has a length property and items stored in numeric indexes.
 
+#### last
+
+`(array: any[]) -> any`
+
+Returns the last item of an array.
+
+#### toArray
+
+`(iterable: object[Symbol.iterator]) -> any[]`
+
+Converts an iterable object (array-like object) to an array.
+
+### Boolean
+
 #### isBoolean
 
 `(value: any) -> boolean`
 
 Determine if a value is a boolean value.
+
+### Null and Undefined
 
 #### isNil
 
@@ -66,6 +90,46 @@ Determine if a value is specifically undefined.
 `(value: any, default: any) -> any`
 
 If a value is null or undefined, specify a default value to return. Otherwise, return the value itself.
+
+### Function
+
+#### curry
+
+`(fn) -> fn`
+
+Auto-curry a function.
+
+#### curryN
+
+`(length: number, fn) -> fn`
+
+Curry a function with specified arity of `length`.
+
+#### curriedApply
+
+`(args: any[], fn) -> fn`
+
+Transform a function that takes multiple arguments into one that takes an array.
+
+#### pipe
+
+`(val: any, fns: function[]) -> any`
+
+Pipe a value through a series of functions
+
+#### pipeFns
+
+`(fns: ...function[]) -> function`
+
+Compose a series of functions from left-to-right.
+
+#### withFunctionName
+
+`(name: string, fn) -> function`
+
+Add a `name` property to a function.
+
+### Numeric
 
 #### handleNegativeIndex
 
@@ -95,6 +159,14 @@ Convert a value into its numeric equivalent.
 
 CAUTION: will return `NaN` if the value has no direct numeric equivalent. Will return `Infinity` or `-Infinity` if the value is too large or small to be represented by a JavaScript number.
 
+### Object
+
+#### assign
+
+`(objects: object[]) -> object`
+
+Shallowly copies properties of each successive object to the first object in the order they are passed into the function. Mutates the first object.
+
 #### callInternalToString
 
 `(object: any) -> string
@@ -105,13 +177,31 @@ Calls `Object.prototype.toString` with `object` as the context.
 
 `(object: any) -> string`
 
-Gets the class or constructor name. Works with anonymous function expressions bound to variables, but the following return an empty string:
+Gets the class or constructor name. Works with anonymous function expressions bound to variables, but the following returns an empty string:
 
 ```js
 let o = new function() {};
 ```
 
 ... so probably DON'T DO THAT.
+
+#### clone
+
+`(object: any) -> any`
+
+Make a clone of an object. If the object has a `clone` method, it uses that. Otherwise, it recursively copies an object's own properties. Note that `__proto__` is _not_ an own property.
+
+#### deepStrictEqual
+
+`(a: any, b: any) -> boolean`
+
+Recursively checks all properties of both objects for strict equality (`===`).
+
+#### extend
+
+`(a: object, b: object) -> object`
+
+Copies `b`'s properties shallowly onto `a`. Mutates `a`.
 
 #### forAllProperties
 
@@ -137,11 +227,35 @@ Get the constructor function or class used to create an object.
 
 If an object has an own property, retrieve it. Otherwise returns `false`.
 
+#### getProto
+
+`(object: any) -> any`
+
+Get the prototype of an object.
+
 #### hasOwn
 
 `(object: any, property: string) -> boolean`
 
 Determine if an object has an own property.
+
+#### isObject
+
+`(value: any) -> boolean`
+
+Determine if a value is an object. Also detects objects with `null` prototypes.
+
+#### mapObject
+
+`(object: object, fn: (any) -> any) -> object`
+
+Returns a new object with the same keys as the source object and a callback function applied to each of the source object's properties.
+
+#### objectIs
+
+`(a: any, b: any) -> boolean`
+
+Checks if a and b are the exact same object. If primitive values and not `NaN`, checks for strict equality. Also correctly checks if `NaN` equals `NaN`.
 
 #### ownPropertyNames
 
@@ -149,17 +263,27 @@ Determine if an object has an own property.
 
 Return an array of all an object's own string property names.
 
+#### setAccessor
+
+`(target: object, key: string[, { getter: () -> any, setter: (...args: any) -> any }]) -> void`
+
+Sets a getter and setter (either or both optional) on `target[key]`.
+
 #### setProperty
 
 `(target: object, name: string, value: any[, enumerable: boolean|undefined, writable: boolean|undefined]) -> void`
 
 Sets a property and its attributes on a target object.
 
+### RegExp
+
 #### isRegExp
 
 `(value: any) -> boolean`
 
 Determine if a value is a RegExp.
+
+### String
 
 #### coerceToString
 
@@ -173,14 +297,30 @@ If a value is not a string, coerce it to its string representation.
 
 Determine if a value is a string.
 
+#### trim
+
+`(string: string) -> string`
+
+Trims whitespace from both sides of a string.
+
+### Symbol
+
 #### isSymbol
 
 `(value: any) -> boolean`
 
 Determine if a value is a Symbol.
 
+### Other Values
+
 #### isDefined
 
 `(value: any) -> boolean`
 
 Determine if a value is defined.
+
+## Constants
+
+### __
+
+Use as a placeholder for `curry` and `curryN`.

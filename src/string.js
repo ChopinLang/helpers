@@ -25,4 +25,8 @@ function isString(value) {
   );
 }
 
-module.exports = { coerceToString, isString };
+function trim(string) {
+  return string.trim();
+}
+
+module.exports = { coerceToString, isString, trim };

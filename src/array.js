@@ -2,6 +2,10 @@ function arrayFrom(object, mapFn) {
   return Array.from(object, mapFn);
 }
 
+function first(array) {
+  return array[0];
+}
+
 function isArray(object) {
   return Array.isArray(object);
 }
@@ -17,4 +21,12 @@ function isArrayLike(object) {
   );
 }
 
-module.exports = { arrayFrom, isArray, isArrayLike };
+function last(array) {
+  return array[array.length - 1];
+}
+
+function toArray(iterable) {
+  return [...iterable];
+}
+
+module.exports = { arrayFrom, first, isArray, isArrayLike, last, toArray };
