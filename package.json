@@ -4,7 +4,9 @@
   "description": "A collection of useful helper functions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish:package": "npm run publish:push && npm publish",
+    "publish:push": "git add . && git commit -m 'Publish to NPM' && git push",
+    "format": "prettier --write . && eslint --fix"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,10 @@
   "bugs": {
     "url": "https://github.com/NyxLang/helpers/issues"
   },
-  "homepage": "https://github.com/NyxLang/helpers#readme"
+  "homepage": "https://github.com/NyxLang/helpers#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.2.1"
+  }
 }

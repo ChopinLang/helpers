@@ -180,7 +180,7 @@ Calls `Object.prototype.toString` with `object` as the context.
 Gets the class or constructor name. Works with anonymous function expressions bound to variables, but the following returns an empty string:
 
 ```js
-let o = new function() {};
+let o = new (function () {})();
 ```
 
 ... so probably DON'T DO THAT.
@@ -321,6 +321,6 @@ Determine if a value is defined.
 
 ## Constants
 
-### __
+### \_\_
 
 Use as a placeholder for `curry` and `curryN`.
