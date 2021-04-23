@@ -1,8 +1,8 @@
-import { isArray } from "./array.js";
-import { isBoolean } from "./boolean.js";
-import { isBigInt, isNumber } from "./number.js";
-import { isNil } from "./nil.js";
-import { isString } from "./string.js";
+const { isArray } = require("./array.js");
+const { isBoolean } = require("./boolean.js");
+const { isBigInt, isNumber } = require("./number.js");
+const { isNil } = require("./nil.js");
+const { isString } = require("./string.js");
 
 function assign(...objects) {
   return Object.assign(...objects);
