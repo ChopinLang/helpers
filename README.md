@@ -65,32 +65,6 @@ Converts an iterable object (array-like object) to an array.
 
 Determine if a value is a boolean value.
 
-### Null and Undefined
-
-#### isNil
-
-`(value: any) -> boolean`
-
-Determine if a value is `null` or `undefined`.
-
-#### isNull
-
-`(value: any) -> boolean`
-
-Determine if a value is specifically null.
-
-#### isUndefined
-
-`(value: any) -> boolean`
-
-Determine if a value is specifically undefined.
-
-#### nilDefault
-
-`(value: any, default: any) -> any`
-
-If a value is null or undefined, specify a default value to return. Otherwise, return the value itself.
-
 ### Function
 
 #### curry
@@ -128,6 +102,32 @@ Compose a series of functions from left-to-right.
 `(name: string, fn) -> function`
 
 Add a `name` property to a function.
+
+### Null and Undefined
+
+#### isNil
+
+`(value: any) -> boolean`
+
+Determine if a value is `null` or `undefined`.
+
+#### isNull
+
+`(value: any) -> boolean`
+
+Determine if a value is specifically null.
+
+#### isUndefined
+
+`(value: any) -> boolean`
+
+Determine if a value is specifically undefined.
+
+#### nilDefault
+
+`(value: any, default: any) -> any`
+
+If a value is null or undefined, specify a default value to return. Otherwise, return the value itself.
 
 ### Numeric
 
@@ -243,7 +243,13 @@ Determine if an object has an own property.
 
 `(value: any) -> boolean`
 
-Determine if a value is an object. Also detects objects with `null` prototypes.
+Determine if a value is an instance of Object. Also detects objects with `null` prototypes.
+
+#### isObjectType
+
+`(value: any) -> boolean`
+
+Determine if `value typeof "object"` is true.
 
 #### mapObject
 

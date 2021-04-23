@@ -55,6 +55,7 @@ function clone(object) {
   return mapObject(object, clone);
 }
 
+// TODO: Handle maps and sets
 function deepStrictEqual(a, b) {
   // Array equality
   if (isArray(a)) {
@@ -89,6 +90,8 @@ function deepStrictEqual(a, b) {
         return false;
       }
     }
+  } else if (a instanceof RegExp || a instanceof Date) {
+    return a.toString() == b.toString();
   } else {
     return a === b;
   }
@@ -148,6 +151,10 @@ function isObject(value) {
   return value instanceof Object || isNil(getProto(value));
 }
 
+function isObjectType(obj, type) {
+  return !!obj && (type || typeof obj) === "object";
+}
+
 function mapObject(object, fn) {
   const proto = getProto(object);
   let mapped = proto ? Object.create(proto) : Object.create(null);
@@ -203,6 +210,7 @@ module.exports = {
   getProto,
   hasOwn,
   isObject,
+  isObjectType,
   mapObject,
   objectIs,
   ownPropertyNames,
