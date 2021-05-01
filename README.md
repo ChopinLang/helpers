@@ -240,6 +240,12 @@ Get the prototype of an object.
 
 Determine if an object has an own property.
 
+#### hasProperty
+
+`(object: any, property: string) -> boolean`
+
+Determine if an object has a property anywhere in its prototype chain.
+
 #### isObject
 
 `(value: any) -> boolean`

@@ -141,6 +141,10 @@ function hasOwn(object, property) {
   return !!object && Object.prototype.hasOwnProperty.call(object, property);
 }
 
+function hasProperty(object, property) {
+  return property in object;
+}
+
 function isObject(value) {
   if (isNil(value)) {
     return false;
@@ -207,6 +211,7 @@ module.exports = {
   getOwn,
   getProto,
   hasOwn,
+  hasProperty,
   isObject,
   isObjectType,
   mapObject,
