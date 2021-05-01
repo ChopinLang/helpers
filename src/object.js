@@ -106,6 +106,13 @@ function extend(a, b) {
   return a;
 }
 
+function extendWithAll(to, ...froms) {
+  for (let from in froms) {
+    extend(to, from);
+  }
+  return to;
+}
+
 function forAllProperties(object, fn) {
   for (let key of Object.getOwnPropertyNames(object)) {
     if (fn.call(object, obj[key], key, object) === false) {
@@ -205,6 +212,7 @@ module.exports = {
   clone,
   deepStrictEqual,
   extend,
+  extendWithAll,
   forAllProperties,
   forEachProperty,
   getClass,

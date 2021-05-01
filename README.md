@@ -204,6 +204,12 @@ Recursively checks all properties of both objects for strict equality (`===`).
 
 Copies `b`'s properties shallowly onto `a`. Mutates `a`.
 
+#### extendWithAll
+
+`(to: object, froms: object[]) -> object`
+
+Copies each property on every object in `froms` onto `to`. Goes from left-to-right, e.g. in case of conflicts a later argument's property will overwrite one from an earlier object. Mutates `to`.
+
 #### forAllProperties
 
 `(object: any, fn: (property: any[, key: string, object: any]) -> void|boolean) -> void`
