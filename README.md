@@ -1,6 +1,6 @@
-# Nyx Helpers
+# Chopin Helpers
 
-A collection of useful helper functions used internally in the Nyx interpreter
+A collection of useful helper functions used internally in the Chopin compiler.
 
 ## Installation
 
