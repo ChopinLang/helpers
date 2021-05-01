@@ -19,8 +19,6 @@ function classToString(object) {
 }
 
 function clone(object) {
-  const type = typeof object;
-
   // Immutable primitive types, builtin Object wrappers or null/undefined
   if (
     isBigInt(object) ||
