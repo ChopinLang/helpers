@@ -4,8 +4,9 @@ A collection of useful helper functions used internally in the Chopin compiler.
 
 ## Installation
 
-The package is not currently published to NPM, so you'll have to either clone the repo or download + unzip it into your dependencies directory.
-
+```sh
+npm install @chopinlang/helpers
+```
 ## Usage
 
 Include the object in your project:

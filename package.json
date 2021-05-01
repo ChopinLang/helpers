@@ -1,6 +1,6 @@
 {
   "name": "@chopinlang/helpers",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A collection of useful helper functions",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NyxLang/helpers.git"
+    "url": "git+https://github.com/chopinLang/helpers.git"
   },
   "keywords": [
     "helpers",
@@ -27,9 +27,9 @@
   "author": "Jason Barr <jason@jasonsbarr.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NyxLang/helpers/issues"
+    "url": "https://github.com/chopinLang/helpers/issues"
   },
-  "homepage": "https://github.com/NyxLang/helpers#readme",
+  "homepage": "https://github.com/chopinLang/helpers#readme",
   "devDependencies": {
     "eslint": "^7.24.0",
     "eslint-plugin-prettier": "^3.4.0",
